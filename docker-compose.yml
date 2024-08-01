@@ -1,0 +1,38 @@
+name: my-app
+
+services:
+  web:
+    image: nginx
+    ports:
+      - 80:80
+      - 81:80
+    volumes:
+      - ./web:/usr/share/nginx/html
+    networks:
+      - fe_nw
+
+  app:
+    build: ./bezkoder-app
+    command: sleep infinity
+    ports:
+      - 8080:8080
+    networks:
+      - be_nw
+      - fe_nw
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+    ports:
+      - 3306:3306
+    networks:
+      - be_nw
+    volumes:
+      - mysql:/var/lib/mysql
+networks:
+  fe_nw:
+  be_nw:
+
+volumes:
+  mysql:
