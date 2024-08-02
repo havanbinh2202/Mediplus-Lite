@@ -18,8 +18,8 @@ pipeline {
         }
         failure {
             emailext (
-                body: """bodyy #$BUILD_NUMBER ${env.BUILD_URL}""", 
-                subject: "subjectt-failed ${env.JOB_NAME} #${env.BUILD_NUMBER}", 
+                body: """bodyy #$BUILD_NUMBER""", 
+                subject: "subjectt-failed ", 
                 to: 'havanbinh22022003@gmail.com'
             )
         }
