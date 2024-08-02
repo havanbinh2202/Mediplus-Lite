@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stages('Clone'){
+        stage('Clone'){
             steps {
                 git branch: 'main', credentialsId: 'creds-github', url: 'https://github.com/havanbinh2202/Mediplus-Lite.git'
             }
