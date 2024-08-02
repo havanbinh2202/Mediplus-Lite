@@ -11,14 +11,14 @@ pipeline {
     post {
         success {
             emailext (
-                body: 'bodyy #${env.BUILD_NUMBER} ${env.BUILD_URL}', 
-                subject: 'subjectt-success ${env.JOB_NAME} #${env.BUILD_NUMBER}', 
+                body: 'bodyy #$BUILD_NUMBER $BUILD_URL', 
+                subject: 'subjectt-success $JOB_NAME #$BUILD_NUMBER', 
                 to: 'havanbinh22022003@gmail.com'
             )
         }
         failure {
             emailext (
-                body: 'bodyy #${env.BUILD_NUMBER} ${env.BUILD_URL}', 
+                body: 'bodyy #$BUILD_NUMBER ${env.BUILD_URL}', 
                 subject: 'subjectt-failed ${env.JOB_NAME} #${env.BUILD_NUMBER}', 
                 to: 'havanbinh22022003@gmail.com'
             )
