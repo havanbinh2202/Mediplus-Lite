@@ -6,7 +6,7 @@ pipeline {
                 git branch: 'main', credentialsId: 'creds-github', url: 'https://github.com/havanbinh2202/Mediplus-Lite.git'
             }
         }
-    }
+    
         stage('Push docker Hub'){
             steps {
             // This step should not normally be used in your script. Consult the inline help for details.
@@ -17,6 +17,7 @@ pipeline {
                 }
             }
         }
+    }
             // send mail notification
     post {
         success {
