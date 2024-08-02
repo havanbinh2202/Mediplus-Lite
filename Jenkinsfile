@@ -6,6 +6,7 @@ pipeline {
                 git branch: 'main', credentialsId: 'creds-github', url: 'https://github.com/havanbinh2202/Mediplus-Lite.git'
             }
         }
+    }
             // send mail notification
     post {
         success {
@@ -22,6 +23,5 @@ pipeline {
                 to: 'havanbinh22022003@gmail.com'
             )
         }
-    }
     }
 }
