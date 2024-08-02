@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone'){
             steps {
-                git branch: 'main', credentialsId: 'creds-github', url: 'https://github.com/havanbinh2202/Mediplus-Lite.git'
+                git branch: 'main', url: 'https://github.com/havanbinh2202/Mediplus-Lite.git'
             }
         }
         stage('Push docker Hub'){
