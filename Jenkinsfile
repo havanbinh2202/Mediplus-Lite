@@ -3,14 +3,14 @@ pipeline {
     stages {
         stage('Clone'){
             steps {
-                git branch: 'main', url: 'https://github.com/havanbinh2202/Mediplus-Lite.git'
+                git branch: 'main', credentialsId: 'creds-github', url: 'https://github.com/havanbinh2202/Mediplus-Lite.git'
             }
         }
         stage('Push docker Hub'){
             steps {
-                // This step should not normally be used in your script. Consult the inline help for details.
-                withDockerRegistry(credentialsId: 'creds-dockerhub', url:'') {
-                        // some block
+            // This step should not normally be used in your script. Consult the inline help for details.
+                withDockerRegistry(credentialsId: 'dockerhub', url:'') {
+                    // some block
                     sh label: '', script: 'docker build -t binhha2202/devops-th:latest .'
                     sh label: '', script: 'docker push binhha2202/devops-th:latest'
                 }
